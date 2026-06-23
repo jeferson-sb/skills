@@ -94,4 +94,4 @@ executes old-vs-new, (3) a type-aware input generator. Only TS/JS ships today.
 
 ## License
 
-Not yet set — MIT suggested. Add a `LICENSE` file when you're ready.
+MIT — see [`LICENSE`](LICENSE).
