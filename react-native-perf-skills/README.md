@@ -18,7 +18,7 @@ graph LR;
 Install with `npx skills`:
 
 ```bash
-npx skills install jeferson-sb/react-native-perf-skills
+npx skills install jeferson-sb/skills
 npx skills install callstackincubator/agent-skills --skill react-native-best-practices
 ```
 

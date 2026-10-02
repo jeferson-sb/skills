@@ -15,8 +15,8 @@
   "author": {
     "name": "Jeferson Brito"
   },
-  "homepage": "https://github.com/jeferson-sb/react-native-perf-skills",
-  "repository": "https://github.com/jeferson-sb/react-native-perf-skills",
+  "homepage": "https://github.com/jeferson-sb/skills/tree/main/react-native-perf-skills",
+  "repository": "https://github.com/jeferson-sb/skills/tree/main/react-native-perf-skills",
   "peerDependencies": {
     "react-native-best-practices": ">=1.0.0"
   }
