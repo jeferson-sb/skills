@@ -74,7 +74,9 @@ making the next override harder.
 ## 4. `:is()` to group selectors
 
 **Problem.** Long selector lists repeat the same prefix or suffix.
+
 **Why.** `:is()` removes the repetition.
+
 **Fix.**
 
 ```css
@@ -90,7 +92,9 @@ making the next override harder.
 ## 5. Always set `content` on pseudo-elements
 
 **Problem.** A `::before` / `::after` without `content` renders nothing, a silent bug.
+
 **Why.** `content` is what makes the pseudo-element exist.
+
 **Fix.**
 
 ```css
@@ -106,7 +110,9 @@ making the next override harder.
 ## 6. Typed custom properties with `@property` (Newly)
 
 **Problem.** Plain custom properties are untyped strings: they can't be animated, have no default, and always inherit.
+
 **Why.** `@property` sets a type, an initial value and inheritance, so the property can transition and animate.
+
 **Fix.**
 
 ```css

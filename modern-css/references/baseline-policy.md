@@ -65,6 +65,7 @@ core browser set (Chrome, Edge, Firefox, Safari — desktop and mobile).
 | `font-variant-numeric` | **Widely** | 2022-07-15 | 52 / 34 / 9.1 |
 | `shape-outside` | **Widely** | 2022-07-15 | 37 / 62 / 10.1 |
 | `text-overflow` | **Widely** | 2018-01-29 | 1 / 7 / 1.3 |
+| `lh` unit | **Widely** | 2026-05-21 | 109 / 120 / 16.4 |
 | `subgrid` | **Widely** | 2026-03-15 | 117 / 71 / 16 |
 | `sibling-index()` / `sibling-count()` | **Newly** | → ~2029-02-18 | 138 / 154 / 26.2 |
 | `backdrop-filter` | **Newly** | → ~2027-03-16 | 76 / 103 / 18 |

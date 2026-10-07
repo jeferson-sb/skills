@@ -67,7 +67,9 @@ forces layout or paint every frame.
 ## 4. Separate the trigger from the effect
 
 **Problem.** An element that moves on its own `:hover` slides out from under the pointer, loses hover, moves back, and flickers in a loop.
+
 **Why.** The trigger must stay put while the effect moves: hover the stable parent, animate the child.
+
 **Fix.**
 
 ```css
@@ -85,7 +87,9 @@ forces layout or paint every frame.
 ## 5. Stagger with a custom property
 
 **Problem.** Staggered delays are hard-coded per `:nth-child()`, so they break when the list grows.
+
 **Why.** One formula, driven by an index, covers any length.
+
 **Fix.**
 
 ```css
@@ -106,7 +110,9 @@ li { transition-delay: calc((sibling-index() - 1) * 50ms); }
 ## 6. Keep durations under 400ms
 
 **Problem.** Slow transitions (600ms+) make the UI feel laggy; very fast ones (under ~100ms) are invisible.
+
 **Why.** Interfaces feel responsive when feedback arrives in under 400ms (Doherty threshold).
+
 **Fix.**
 
 ```css

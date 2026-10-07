@@ -42,7 +42,9 @@ h1 { font-size: clamp(1.75rem, 1.25rem + 2.5vw, 3rem); }
 ## 3. Line-height by role
 
 **Problem.** One line-height for everything: tight body text is hard to read, loose headings look disconnected.
+
 **Why.** Long lines of body text need room; large headings need less.
+
 **Fix.**
 
 ```css
@@ -60,7 +62,9 @@ body { line-height: 1.6; }
 ## 4. `text-wrap: balance` and `pretty`
 
 **Problem.** Headings end with a single orphan word; paragraphs leave short last lines.
+
 **Why.** `balance` evens out line lengths; `pretty` avoids orphans. This changes where lines break, not how words break.
+
 **Fix.**
 
 ```css
@@ -77,7 +81,9 @@ p { text-wrap: pretty; }
 ## 5. `tabular-nums`
 
 **Problem.** Digits have different widths, so columns of numbers and counters jitter.
+
 **Why.** `tabular-nums` gives every digit the same width.
+
 **Fix.**
 
 ```css
@@ -93,7 +99,9 @@ td.amount, .counter { font-variant-numeric: tabular-nums; text-align: end; }
 ## 6. Text around shapes
 
 **Problem.** Text wraps around a round or irregular float as if it were a rectangle, leaving gaps.
+
 **Why.** `shape-outside` lets text follow the shape; `shape-margin` adds breathing room.
+
 **Fix.**
 
 ```css
@@ -116,7 +124,9 @@ td.amount, .counter { font-variant-numeric: tabular-nums; text-align: end; }
 ## 7. Truncating text
 
 **Problem.** Long text overflows its box or breaks the layout.
+
 **Why.** `text-overflow: ellipsis` truncates one line; line clamping truncates a block to N lines.
+
 **Fix.**
 
 ```css

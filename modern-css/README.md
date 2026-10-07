@@ -36,7 +36,7 @@ style a pricing card component                            → write mode
 | [Color](references/color.md) | Tokens instead of hardcoded colors · `oklch()` · derived shades with `color-mix()` |
 | [Animation](references/animation.md) | No `transition: all` · `transform`/`opacity` · `@starting-style` · hover flicker · staggering · durations ≤ 400ms |
 | [Preferences](references/preferences.md) | `prefers-reduced-motion` · `color-scheme` / `light-dark()` · `prefers-contrast` / `forced-colors` · `prefers-reduced-transparency` · `accent-color` |
-| [Forms](references/forms.md) | `field-sizing: content` |
+| [Forms](references/forms.md) | `field-sizing: content` · `lh` heights · `font: inherit` |
 | [Baseline policy](references/baseline-policy.md) | Status table, fallback patterns, how to verify support |
 
 ```

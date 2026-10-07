@@ -40,7 +40,7 @@ platform features instead of legacy workarounds. Every rule in this skill is a
 | `references/color.md` | Color tokens, `oklch()`, derived colors |
 | `references/animation.md` | `transition: all`, compositor-friendly properties, `@starting-style`, hover flicker, stagger, durations |
 | `references/preferences.md` | `prefers-reduced-motion`, `color-scheme`/`light-dark()`, `prefers-contrast`, `forced-colors`, `prefers-reduced-transparency`, `accent-color` |
-| `references/forms.md` | `field-sizing` |
+| `references/forms.md` | `field-sizing`, `lh` heights, `font: inherit` |
 | `references/baseline-policy.md` | Baseline status table, fallback patterns, how to verify support |
 
 Each rule is **Problem → Why → Fix** (before/after), plus a one-line **Note** for
@@ -112,6 +112,7 @@ rank by impact and safety: simple, high-frequency fixes first.
 | `:hover` that moves/scales the same element | animation §4 |
 | `:nth-child(n)` carrying `transition-delay` / `animation-delay` | animation §5 |
 | durations over 400ms (`[5-9]\d\d ms`, `\d{4,}ms`, `0?\.[5-9]s`, `[1-9]s`) | animation §6 |
+| form controls with no `font: inherit`; textarea heights in `px`/`rows` | forms §2–3 |
 | `<textarea>`/`<input>` auto-grow done in JS (`scrollHeight`) | forms §1 |
 
 Convert colors with a tool of the user's choice, never by hand.

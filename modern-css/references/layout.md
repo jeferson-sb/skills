@@ -92,8 +92,10 @@ hard-wired to LTR and need RTL overrides.
 ## 5. `min()`, `max()`, `clamp()`
 
 **Problem.** `width: 100%` + `max-width` + media queries to change padding.
+
 **Why.** One declaration sets the bounds, and the element grows and shrinks
 between them with no media query.
+
 **Fix.**
 
 ```css
@@ -115,8 +117,10 @@ between them with no media query.
 
 **Problem.** `width: 300px` / `height: 200px` clips text, breaks with translations
 and larger fonts, and shifts layout while media loads.
+
 **Why.** Let the content size the box: `min-content` (narrowest), `max-content`
 (widest, no wrap), `fit-content` (hugs content, capped by available space).
+
 **Fix.**
 
 ```css
@@ -136,7 +140,9 @@ and larger fonts, and shifts layout while media loads.
 ## 7. Flexbox: wrap by content size
 
 **Problem.** `flex: 1` items squish into one row instead of wrapping.
+
 **Why.** `min-inline-size: fit-content` makes each item's size at least its content, so the browser wraps when they no longer fit.
+
 **Fix.**
 
 ```css
@@ -153,7 +159,9 @@ and larger fonts, and shifts layout while media loads.
 ## 8. Flexbox: let items shrink
 
 **Problem.** Long text, URLs, `pre` or images overflow a flex item.
+
 **Why.** Flex items default to `min-width: auto`, so they never shrink below their content.
+
 **Fix.**
 
 ```css
@@ -169,7 +177,9 @@ and larger fonts, and shifts layout while media loads.
 ## 9. Grid: place items with named lines and subgrid
 
 **Problem.** Mixing full-bleed and constrained content relies on source order, wrappers, or `100vw` tricks (which add a horizontal scrollbar).
+
 **Why.** Named lines let each child pick its column explicitly; `subgrid` lets nested wrappers reuse the parent's tracks.
+
 **Fix.**
 
 ```css
@@ -198,7 +208,9 @@ and larger fonts, and shifts layout while media loads.
 ## 10. `inset: 0`
 
 **Problem.** Four declarations to stretch an absolutely positioned element.
+
 **Why.** `inset` is the shorthand for `top`, `right`, `bottom`, `left`.
+
 **Fix.**
 
 ```css
@@ -214,7 +226,9 @@ and larger fonts, and shifts layout while media loads.
 ## 11. `overflow: clip` instead of `hidden`
 
 **Problem.** `overflow: hidden` clips, but also makes a scroll container: content can still be scrolled programmatically, and it breaks `position: sticky` descendants.
+
 **Why.** `overflow: clip` only clips; no scroll container is created.
+
 **Fix.**
 
 ```css
@@ -230,7 +244,9 @@ and larger fonts, and shifts layout while media loads.
 ## 12. Z-index tokens and `isolation: isolate`
 
 **Problem.** Arbitrary `z-index` values (`9999`) escalate, and nobody knows what sits above what.
+
 **Why.** Named layers make the order explicit; `isolation: isolate` creates a stacking context so a component's inner z-indexes can't leak out.
+
 **Fix.**
 
 ```css

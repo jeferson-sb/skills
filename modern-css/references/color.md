@@ -30,8 +30,10 @@ mode means editing every file.
 
 **Problem.** Hex/`rgb()`/`hsl()` aren't perceptually uniform, so shades and hue
 shifts come out uneven.
+
 **Why.** In `oklch(L C H)` equal lightness looks equal across hues, so scales and
 contrast are predictable.
+
 **Fix.**
 
 ```css
@@ -47,7 +49,9 @@ contrast are predictable.
 ## 3. `color-mix()` for derived shades
 
 **Problem.** Each hover, disabled and tint state is a hand-picked literal that drifts from the base.
+
 **Why.** Derived shades follow the base token.
+
 **Fix.**
 
 ```css

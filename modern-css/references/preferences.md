@@ -68,7 +68,9 @@ body { background: var(--bg); color: var(--text); }
 ## 4. `prefers-reduced-transparency`
 
 **Problem.** Translucent surfaces and `backdrop-filter` blur reduce legibility for some users.
+
 **Why.** Users can ask the OS for less transparency; swap blur for a solid surface.
+
 **Fix.**
 
 ```css
@@ -86,7 +88,9 @@ body { background: var(--bg); color: var(--text); }
 ## 5. `accent-color` for native controls
 
 **Problem.** Checkboxes, radios and ranges are rebuilt with `appearance: none`, losing the native look, behavior and OS accent.
+
 **Why.** `accent-color` tints the native control; `auto` follows the OS/browser accent.
+
 **Fix.**
 
 ```css
