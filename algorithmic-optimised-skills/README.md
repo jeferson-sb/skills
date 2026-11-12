@@ -40,7 +40,7 @@ optimize-algorithms/
 
 Covered strategies: hash-map/Set lookup, sort-once + two-pointer, binary search,
 heap (priority queue), memoization/tabulation (DP), prefix-sum / sliding-window,
-graph BFS/DFS, stack/queue, accumulate-join, counting sort, invariant hoisting.
+graph BFS/DFS, stack/queue, accumulate-join, counting sort, invariant hoisting, pass fusion.
 
 ## Usage
 

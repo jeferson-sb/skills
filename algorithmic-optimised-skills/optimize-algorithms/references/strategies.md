@@ -188,6 +188,37 @@ for (let i = 0; i < n; i++) { ... }
 
 ---
 
+## `fuse-passes` — one loop instead of k
+**Replaces:** several independent sequential passes over the same collection;
+`filter`→`map` chains that allocate intermediate arrays.
+**Win:** k traversals → 1 (same big-O); drops intermediate allocations.
+
+```ts
+// before — up to 3 traversals
+const isLoading = results?.some((r) => r?.isLoading);
+const isSuccess = results?.every((r) => r?.isSuccess);
+const isError = results?.some((r) => r?.isError);
+
+// after — 1 traversal; flags stay independent (loading + error can coexist)
+let isLoading = false, isError = false, isSuccess = true;
+for (const r of results ?? []) {
+  if (r?.isLoading) isLoading = true;
+  if (r?.isError) isError = true;
+  if (!r?.isSuccess) isSuccess = false;
+}
+
+// filter + map in one pass
+const names = users.flatMap((u) => (u.active ? [u.name] : []));
+```
+**Equivalence notes:** `[].every()` is `true` — initialize `isSuccess = true`.
+If the original yields `undefined` for a nullish collection (`results?.some(...)`),
+decide explicitly whether `false` is acceptable or preserve `undefined`. Keep each
+derived value's original meaning; do not merge non-exclusive flags into an enum.
+**Don't bother when:** the collection is small/bounded and the path is cold —
+`some`/`every` short-circuit and don't allocate, so fusion only costs readability.
+
+---
+
 ## Universal "don't bother" checklist
 Before recommending ANY strategy, confirm:
 - The function is **pure** (else advisory-only).

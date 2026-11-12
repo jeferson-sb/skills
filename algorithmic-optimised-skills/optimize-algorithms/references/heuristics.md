@@ -77,6 +77,26 @@ Each entry: the smell, what to grep/look for, the likely fix (strategy id from
 - **Fix:** `hoist-invariant` — compute once before the loop.
 - **False positives:** the value actually changes each iteration.
 
+## 10. Multiple independent passes over the same collection
+- **Smell:** k× constant-factor waste — two or more sequential (not nested) passes
+  over the same collection whose results don't depend on each other. Complexity
+  stays O(n); the cost is k traversals plus, for `filter`/`map` chains, an
+  intermediate array per step.
+- **Look for:** the same receiver used by several `.some(`/`.every(`/`.filter(`/
+  `.map(`/`.reduce(`/`.find(`/`.length` derivations in a row, e.g.
+  `xs.some(a)`, `xs.every(b)`, `xs.some(c)`; or chains like
+  `xs.filter(f).map(g)` / `xs.map(g).filter(Boolean)`.
+- **Fix:** `fuse-passes` — one loop computing every result; `flatMap` or a single
+  `reduce`/`for` for filter+map chains.
+- **False positives:** small or bounded collections on a cold path (e.g. 2–5 queries
+  from `useQueries`) — `some`/`every` short-circuit and allocate nothing, so the
+  fused loop wins nothing measurable and reads worse. Report as low-impact at most.
+  Also: passes that are *not* independent (a later pass needs an earlier result).
+- **Semantics trap:** derived flags over a collection are usually **not** mutually
+  exclusive even if they are per item (`some(isLoading)` and `some(isError)` can
+  both be true). Fuse into independent flags; never collapse into a single
+  enum/status unless exclusivity is proven.
+
 ---
 
 ## Cross-cutting Pass B reminders

@@ -28,7 +28,7 @@ nested loops over related data, `.includes`/`.indexOf`/`.find` inside loops,
 `.sort()` inside loops or repeated re-sorts, arrays used as sets/dicts, recursion
 with overlapping subproblems and no memo, repeated linear min/max or top-k, linear
 search over sorted data, repeated string/array concat in loops, loop-invariant
-recompute. Collect every hit as a *suspect* — do not judge yet.
+recompute, multiple independent passes over the same collection. Collect every hit as a *suspect* — do not judge yet.
 
 ## Pass B — reasoning (confirm, kill false positives)
 
